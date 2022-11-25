@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "EventHubNamespace": "Endpoint=sb://zucnrtpehn001.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=dHlaefLPtDH9JDxjpBc1lHpGHJDTb1e+WMnDhI/qI/0=",
+    "EventHubName": "zucnrtpeh001",
+    "MSConsumerGroup": "zucnrtpcg001",
+    "Filters": "DependencycheckPending",
+    "TargetService": "DependencyCheck",
+    "TargetServiceUrl": "https://zucnrtpwacon009.azurewebsites.net/api/v1/dependencycheck",
+    "ContentType": "application/json",
+    "UseHttpMethod": "POST"
+  }
+}

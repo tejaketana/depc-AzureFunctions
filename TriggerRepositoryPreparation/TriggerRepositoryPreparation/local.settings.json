@@ -1,0 +1,29 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "CosmosDB_Connection": "AccountEndpoint=https://zucnrtpcosdb001.documents.azure.com:443/;AccountKey=sb8cL5xSbcylYcFnNs7FUbi1IFgtfFDHtZyq7xbNcc5LKFzqjdcxt9OOaltiMP24N0fdOtjborFJs1n0UazKdQ==;",
+    "StoreConfigurationLogs_DatabaseId": "DeploymentConsole_Dev",
+    "StoreConfigurationLogs_CollectionId": "StoreConfigurationLogs",
+    "StoreConfigurationSettings_DatabaseId": "DeploymentConsole_Dev",
+    "StoreConfigurationSettings_CollectionId": "StoreConfigurationSettings",
+    "EventHubNamespace": "Endpoint=sb://zucnrtpehn001.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=dHlaefLPtDH9JDxjpBc1lHpGHJDTb1e+WMnDhI/qI/0=",
+    "EventHubName": "zucnrtpeh001",
+    "EventHubNamespaceKeyName": "RootManageSharedAccessKey",
+    "EventHubNamespaceKeyValue": "dHlaefLPtDH9JDxjpBc1lHpGHJDTb1e+WMnDhI/qI/0=",
+    "EventHubNamespaceUrl": "https://zucnrtpehn001.servicebus.windows.net/",
+    "MSConsumerGroup": "zucnrtpcg014",
+    "FilterKey": "status",
+    "Filters": "DoDeployPending,CancelDeploymentPending,RollbackRequestPending",
+    "ContentTypeKey": "Content-Type",
+    "ContentType": "application/json",
+    "UseHttpMethod": "POST",
+    "AuthKey": "Authorization",
+    "HostKey": "Host",
+    "HostValue": "zucnrtpehn001.servicebus.windows.net",
+    "ResourceUri": "zucnrtpeh001/messages",
+    "PathToUpdateTagsInDeployment": "/storeConfigs/{0}/{1}/storePackages/{2}{3}",
+    "FailedResponse": "DoDeployFailed"
+  }
+}

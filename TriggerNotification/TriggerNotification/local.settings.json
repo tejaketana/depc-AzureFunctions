@@ -1,0 +1,29 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "EventHubNamespace": "Endpoint=sb://zucnrtpehn001.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=dHlaefLPtDH9JDxjpBc1lHpGHJDTb1e+WMnDhI/qI/0=",
+    "EventHubName": "zucnrtpeh001",
+    "EventHubNamespaceKeyName": "RootManageSharedAccessKey",
+    "EventHubNamespaceKeyValue": "dHlaefLPtDH9JDxjpBc1lHpGHJDTb1e+WMnDhI/qI/0=",
+    "EventHubNamespaceUrl": "https://zucnrtpehn001.servicebus.windows.net/",
+    "MSConsumerGroup": "zucnrtpcg016",
+    // *** NOT IN USE - START ***
+    "SmartUpdateEventTypeKey": "EventType",
+    "SmartUpdateEventTypeValues": "PackageDownload,PackageApplication",
+    "SmartUpdateEventStatusKey": "EventStatus",
+    "SmartUpdateEventStatusValues": "Failed",
+    "FilterKey": "status",
+    "FilterValues": "DependencycheckFailed,MigrationFailed,DoDeployFailed",
+    // *** NOT IN USE - END ***
+    "EventTypeKey": "eventType",
+    "EventTypeValues": "NotificationEmail,NotificationSMS",
+    "EventStatusKey": "eventStatus",
+    "EventStatusValues": "Pending",
+    "UseHttpMethod": "POST",
+    "ContentType": "application/json",
+    "NotificationEmailPending": "https://zucnrtpwacon011.azurewebsites.net/api/v1/email",
+    "NotificationSMSPending": "{url}"
+  }
+}

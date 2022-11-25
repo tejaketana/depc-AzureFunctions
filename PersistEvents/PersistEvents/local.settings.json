@@ -1,0 +1,30 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    // Dev settings.
+    "EventHubNamespace": "Endpoint=sb://zucnrtpehn001.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=dHlaefLPtDH9JDxjpBc1lHpGHJDTb1e+WMnDhI/qI/0=",
+    "EventHubName": "zucnrtpeh001",
+    "MSConsumerGroup": "zucnrtpcg003",
+    "CosmosDB_Connection": "AccountEndpoint=https://zucnrtpcosdb001.documents.azure.com:443/;AccountKey=sb8cL5xSbcylYcFnNs7FUbi1IFgtfFDHtZyq7xbNcc5LKFzqjdcxt9OOaltiMP24N0fdOtjborFJs1n0UazKdQ==;",
+    "Target_DatabaseId": "DeploymentConsole_Dev",
+    // QA settings.
+    /*"EventHubNamespace": "Endpoint=sb://zucqrtpehn001.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=3da1pnHcDcZ600MWpdMazfNUjv/6/I+w5q9ma0EqO0A=",
+    "EventHubName": "zucqrtpeh001",
+    "MSConsumerGroup": "zucqrtpcg003",
+    "CosmosDB_Connection": "AccountEndpoint=https://zucqrtpcosdb001.documents.azure.com:443/;AccountKey=x7K07uy3PbQiQvSJ8K0J3vaykwgNZFfQKQ2fXFVrMkUQMuCbUvuxEUIH4CfwkTU26u0zENqQbha5T14u4ur7uw==;",
+    "Target_DatabaseId": "DeploymentConsole",*/
+    "Target_ContainerId": "Monitoring",
+    "StoreEventTypeKey": "EventType",
+    "StoreEventTypeValues": "PackageDownload,PackageApplication",
+    "StoreEventStatusKey": "EventStatus",
+    "StoreEventStatusValues": "Started,Succeeded,Failed,Complete,Cancelled,RollbackStarted,RollbackSucceeded,RollbackFailed",
+    "MigrationEvents": "Started,Succeeded,Failed,Complete",
+    "RollbackEvents": "RollbackStarted,RollbackSucceeded,RollbackFailed",
+    "WorkflowStepStatusKey": "status",
+    "WorkflowStepStatusValues": "DependencycheckPending,MigrationPending,DoDeployPending,DependencycheckSuccess,DependencycheckFailed,MigrationSuccess,MigrationFailed,DoDeploySuccess,DoDeployFailed,Overridden,CancelDeploymentSuccess,CancelDeploymentValidationFailed,RollbackRequestSuccess,RollbackRequestFailed,UpdateWorkflowId,RecalculateStatus",
+    "DCS_Endpoint": "https://zucnrtpwacon004.azurewebsites.net",
+    "DCS_StoreDevices_Uri": "/api/v1/markets/{market}/stores/{storeId}/devices"
+  }
+}

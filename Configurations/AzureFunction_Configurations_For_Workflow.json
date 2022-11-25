@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "EventHubNamespace": "Endpoint=sb://zucnrtpehn001.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=dHlaefLPtDH9JDxjpBc1lHpGHJDTb1e+WMnDhI/qI/0=",
+    "EventHubName": "zucnrtpeh001",
+    "MSConsumerGroup": "zucnrtpcg005",
+    "Filters": "DependencycheckSuccess,DependencycheckFailed,MigrationSuccess,MigrationFailed",
+    "TargetService": "Workflow",
+    "TargetServiceUrl": "https://zucnrtpwacon005.azurewebsites.net/api/v1/workflows",
+    "ContentType": "application/json",
+    "UseHttpMethod": "PATCH"
+  }
+}

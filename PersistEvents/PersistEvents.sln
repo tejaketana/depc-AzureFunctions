@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersistEvents", "PersistEvents\PersistEvents.csproj", "{D7152FE2-B723-4D02-87E3-B0B6C68D2BA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistEvents.Tests", "PersistEvents.Tests\PersistEvents.Tests.csproj", "{D9276CA2-BDC0-40B7-AF28-0E940803BD20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7152FE2-B723-4D02-87E3-B0B6C68D2BA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7152FE2-B723-4D02-87E3-B0B6C68D2BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7152FE2-B723-4D02-87E3-B0B6C68D2BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7152FE2-B723-4D02-87E3-B0B6C68D2BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9276CA2-BDC0-40B7-AF28-0E940803BD20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9276CA2-BDC0-40B7-AF28-0E940803BD20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9276CA2-BDC0-40B7-AF28-0E940803BD20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9276CA2-BDC0-40B7-AF28-0E940803BD20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4397E4F4-934B-45CB-A266-EA9C86C00026}
+	EndGlobalSection
+EndGlobal
