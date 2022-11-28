@@ -14,7 +14,7 @@ env:
   AZURE_FUNCTIONAPP_NAME: depc-FA # set this to the name of your azure function app resource
   AZURE_FUNCTION_PROJ_PATH: CosmosDBTrigger/CosmosDBTrigger  # set this to the path to your function app project
   ROOT_SOLUTION_PATH: CosmosDBTrigger # set this to the root path of your solution/project file
-  DOTNET_VERSION: 6.0.x
+  DOTNET_VERSION: 3.0.13
 
 jobs:
   build:
