@@ -33,18 +33,18 @@ jobs:
         run: dotnet restore
         working-directory: ${{ env.ROOT_SOLUTION_PATH }}
 
-      #- name: Build for Testing
-        #run: dotnet build --no-restore
-        #working-directory: ${{ env.ROOT_SOLUTION_PATH }}
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.ROOT_SOLUTION_PATH }}
       
-      #- name: Test
-        #run: dotnet test --no-build --verbosity normal
-        #working-directory: ${{ env.ROOT_SOLUTION_PATH }}
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.ROOT_SOLUTION_PATH }}
         
-      - name: build and run .net core tests
-        run: |
-          dotnet build CosmosDBTrigger/CosmosDBTrigger/CosmosDBTrigger.csproj
-          dotnet test CosmosDBTrigger/CosmosDBTrigger/CosmosDBTrigger.csproj
+      #- name: build and run .net core tests
+        #run: |
+          #dotnet build CosmosDBTrigger/CosmosDBTrigger/CosmosDBTrigger.csproj
+          #dotnet test CosmosDBTrigger/CosmosDBTrigger/CosmosDBTrigger.csproj
       
       - name: Build Function App for Release
         run: dotnet build --configuration Release --output ./output
