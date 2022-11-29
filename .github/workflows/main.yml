@@ -1,0 +1,320 @@
+name: Test and Deploy Functions Action
+
+on:
+  push:
+    branches: [ main ]
+    #paths-ignore: 
+      #- '**/README.md'
+      #- '**/*.yml'
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  
+env:
+  AZURE_FUNCTIONAPP_NAME: depc-FA # set this to the name of your azure function app resource
+  AZURE_FUNCTION_CosmosDB_PATH: CosmosDBTrigger/CosmosDBTrigger
+  AZURE_FUNCTION_DeploymentUpdates_PATH: DeploymentUpdates/DeploymentUpdates 
+  AZURE_FUNCTION_DevOpsStoreConfiguration_PATH: DevOpsStoreConfiguration/MCD.FN.ManageGit 
+  AZURE_FUNCTION_ExpireWorkflowTimerTrigger_PATH: ExpireWorkflowTimerTrigger/ExpireWorkflowTimerTrigger
+  AZURE_FUNCTION_GitHubStoreConfiguration_PATH: GitHubStoreConfiguration/PrepareGithubRepository
+  AZURE_FUNCTION_PersistEvents_PATH: PersistEvents/PersistEvents
+  AZURE_FUNCTION_TriggerDoDeploy_PATH: TriggerDoDeploy/TriggerDoDeploy
+  AZURE_FUNCTION_TriggerMicroservices_PATH: TriggerMicroservices/TriggerMicroservice
+  AZURE_FUNCTION_TriggerNotification_PATH: TriggerNotification/TriggerNotification
+  AZURE_FUNCTION_TriggerRepositoryPreparation_PATH: TriggerRepositoryPreparation/TriggerRepositoryPreparation
+  AZURE_FUNCTION_WorkflowUpdates_PATH: WorkflowUpdates/WorkflowUpdates
+  CosmosDB_ROOT_SOLUTION_PATH: 'CosmosDBTrigger'
+  DeploymentUpdates_ROOT_SOLUTION_PATH: 'DeploymentUpdates'
+  DevOpsStoreConfiguration_ROOT_SOLUTION_PATH: 'DevOpsStoreConfiguration'
+  ExpireWorkflowTimerTrigger_ROOT_SOLUTION_PATH: 'ExpireWorkflowTimerTrigger'
+  GitHubStoreConfiguration_ROOT_SOLUTION_PATH: 'GitHubStoreConfiguration'
+  PersistEvents_ROOT_SOLUTION_PATH: 'PersistEvents'
+  TriggerDoDeploy_ROOT_SOLUTION_PATH: 'TriggerDoDeploy'
+  TriggerMicroservices_ROOT_SOLUTION_PATH: 'TriggerMicroservices'
+  TriggerNotification_ROOT_SOLUTION_PATH: 'TriggerNotification'
+  TriggerRepositoryPreparation_ROOT_SOLUTION_PATH: 'TriggerRepositoryPreparation'
+  WorkflowUpdates_ROOT_SOLUTION_PATH: 'WorkflowUpdates'
+  DOTNET_VERSION: 3.1.x
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:    
+      - name: Get the latest source code commit
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.CosmosDB_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.CosmosDB_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.CosmosDB_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.DeploymentUpdates_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.DeploymentUpdates_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.DeploymentUpdates_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.DevOpsStoreConfiguration_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.DevOpsStoreConfiguration_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.DevOpsStoreConfiguration_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.ExpireWorkflowTimerTrigger_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.ExpireWorkflowTimerTrigger_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.ExpireWorkflowTimerTrigger_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.GitHubStoreConfiguration_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.GitHubStoreConfiguration_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.GitHubStoreConfiguration_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.PersistEvents_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.PersistEvents_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.PersistEvents_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.TriggerDoDeploy_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.TriggerDoDeploy_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.TriggerDoDeploy_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.TriggerMicroservices_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.TriggerMicroservices_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.TriggerMicroservices_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.TriggerNotification_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.TriggerNotification_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.TriggerNotification_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.TriggerRepositoryPreparation_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.TriggerRepositoryPreparation_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.TriggerRepositoryPreparation_ROOT_SOLUTION_PATH }}
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ${{ env.WorkflowUpdates_ROOT_SOLUTION_PATH }}
+
+      - name: Build for Testing
+        run: dotnet build --no-restore
+        working-directory: ${{ env.WorkflowUpdates_ROOT_SOLUTION_PATH }}
+      
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+        working-directory: ${{ env.WorkflowUpdates_ROOT_SOLUTION_PATH }}
+        
+      #- name: build and run .net core tests
+        #run: |
+          #dotnet build CosmosDBTrigger/CosmosDBTrigger/CosmosDBTrigger.csproj
+          #dotnet test CosmosDBTrigger/CosmosDBTrigger/CosmosDBTrigger.csproj
+      
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_CosmosDB_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_DeploymentUpdates_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_DevOpsStoreConfiguration_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ AZURE_FUNCTION_ExpireWorkflowTimerTrigger_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_GitHubStoreConfiguration_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_TriggerDoDeploy_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_TriggerMicroservices_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_PROJ_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_TriggerNotification_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_TriggerRepositoryPreparation_PATH }}
+        
+      - name: Build Function App for Release
+        run: dotnet build --configuration Release --output ./output
+        working-directory: ${{ env.AZURE_FUNCTION_WorkflowUpdates_PATH }}
+        
+
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_CosmosDB_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_DeploymentUpdates_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_DevOpsStoreConfiguration_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_ExpireWorkflowTimerTrigger_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_GitHubStoreConfiguration_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_PersistEvents_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_TriggerDoDeploy_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_TriggerMicroservices_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_TriggerNotification_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_TriggerRepositoryPreparation_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
+          
+      - name: 'Run Azure Functions Action'
+        uses: Azure/functions-action@v1
+        id: fa
+        with:
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: '${{ env.AZURE_FUNCTION_WorkflowUpdates_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_CREDS }}
