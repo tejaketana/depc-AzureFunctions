@@ -200,7 +200,7 @@ jobs:
         
       - name: Build Function App for Release
         run: dotnet build --configuration Release --output ./output
-        working-directory: ${{ AZURE_FUNCTION_ExpireWorkflowTimerTrigger_PATH }}
+        working-directory: ${{ env.AZURE_FUNCTION_ExpireWorkflowTimerTrigger_PATH }}
         
       - name: Build Function App for Release
         run: dotnet build --configuration Release --output ./output
