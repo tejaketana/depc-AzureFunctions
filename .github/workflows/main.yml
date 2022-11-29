@@ -216,15 +216,11 @@ jobs:
         
       - name: Build Function App for Release
         run: dotnet build --configuration Release --output ./output
-        working-directory: ${{ env.AZURE_FUNCTION_PROJ_PATH }}
-        
-      - name: Build Function App for Release
-        run: dotnet build --configuration Release --output ./output
         working-directory: ${{ env.AZURE_FUNCTION_TriggerNotification_PATH }}
         
-      - name: Build Function App for Release
-        run: dotnet build --configuration Release --output ./output
-        working-directory: ${{ env.AZURE_FUNCTION_TriggerRepositoryPreparation_PATH }}
+      #- name: Build Function App for Release
+        #run: dotnet build --configuration Release --output ./output
+        #working-directory: ${{ env.AZURE_FUNCTION_TriggerRepositoryPreparation_PATH }}
         
       - name: Build Function App for Release
         run: dotnet build --configuration Release --output ./output
