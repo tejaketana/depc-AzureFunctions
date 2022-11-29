@@ -12,7 +12,7 @@ on:
   
 env:
   AZURE_FUNCTIONAPP_NAME: depc-FA # set this to the name of your azure function app resource
-  AZURE_FUNCTION_CosmosDB_PATH: CosmosDBTrigger/CosmosDBTrigger
+  AZURE_FUNCTION_PROJ_PATH: CosmosDBTrigger/CosmosDBTrigger
   AZURE_FUNCTION_DeploymentUpdates_PATH: DeploymentUpdates/DeploymentUpdates 
   AZURE_FUNCTION_DevOpsStoreConfiguration_PATH: DevOpsStoreConfiguration/MCD.FN.ManageGit 
   AZURE_FUNCTION_ExpireWorkflowTimerTrigger_PATH: ExpireWorkflowTimerTrigger/ExpireWorkflowTimerTrigger
@@ -23,7 +23,7 @@ env:
   AZURE_FUNCTION_TriggerNotification_PATH: TriggerNotification/TriggerNotification
   AZURE_FUNCTION_TriggerRepositoryPreparation_PATH: TriggerRepositoryPreparation/TriggerRepositoryPreparation
   AZURE_FUNCTION_WorkflowUpdates_PATH: WorkflowUpdates/WorkflowUpdates
-  CosmosDB_ROOT_SOLUTION_PATH: 'CosmosDBTrigger'
+  ROOT_SOLUTION_PATH: 'CosmosDBTrigger'
   DeploymentUpdates_ROOT_SOLUTION_PATH: 'DeploymentUpdates'
   DevOpsStoreConfiguration_ROOT_SOLUTION_PATH: 'DevOpsStoreConfiguration'
   ExpireWorkflowTimerTrigger_ROOT_SOLUTION_PATH: 'ExpireWorkflowTimerTrigger'
@@ -51,15 +51,15 @@ jobs:
         
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: ${{ env.CosmosDB_ROOT_SOLUTION_PATH }}
+        working-directory: ${{ env.ROOT_SOLUTION_PATH }}
 
       - name: Build for Testing
         run: dotnet build --no-restore
-        working-directory: ${{ env.CosmosDB_ROOT_SOLUTION_PATH }}
+        working-directory: ${{ env.ROOT_SOLUTION_PATH }}
       
       - name: Test
         run: dotnet test --no-build --verbosity normal
-        working-directory: ${{ env.CosmosDB_ROOT_SOLUTION_PATH }}
+        working-directory: ${{ env.ROOT_SOLUTION_PATH }}
         
       #- name: Restore dependencies
         #run: dotnet restore
@@ -183,7 +183,7 @@ jobs:
       
       - name: Build Function App for Release
         run: dotnet build --configuration Release --output ./output
-        working-directory: ${{ env.AZURE_FUNCTION_CosmosDB_PATH }}
+        working-directory: ${{ env.AZURE_FUNCTION_PROJ_PATH }}
         
       #- name: Build Function App for Release
         #run: dotnet build --configuration Release --output ./output
