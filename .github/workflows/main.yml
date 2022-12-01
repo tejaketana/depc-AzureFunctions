@@ -12,7 +12,8 @@ on:
   
 env:
   AZURE_FUNCTIONAPP_NAME: depc-FA # set this to the name of your azure function app resource
-  AZURE_FUNCTION_PROJ_PATH: CosmosDBTrigger/CosmosDBTrigger
+  #AZURE_FUNCTION_PROJ_PATH: CosmosDBTrigger/CosmosDBTrigger
+  AZURE_FUNCTION_PROJ_PATH: DeploymentUpdates/DeploymentUpdates
   AZURE_FUNCTION_DeploymentUpdates_PATH: DeploymentUpdates/DeploymentUpdates 
   AZURE_FUNCTION_DevOpsStoreConfiguration_PATH: DevOpsStoreConfiguration/MCD.FN.ManageGit 
   AZURE_FUNCTION_ExpireWorkflowTimerTrigger_PATH: ExpireWorkflowTimerTrigger/ExpireWorkflowTimerTrigger
@@ -23,7 +24,8 @@ env:
   AZURE_FUNCTION_TriggerNotification_PATH: TriggerNotification/TriggerNotification
   AZURE_FUNCTION_TriggerRepositoryPreparation_PATH: TriggerRepositoryPreparation/TriggerRepositoryPreparation
   AZURE_FUNCTION_WorkflowUpdates_PATH: WorkflowUpdates/WorkflowUpdates
-  ROOT_SOLUTION_PATH: 'CosmosDBTrigger'
+  #ROOT_SOLUTION_PATH: 'CosmosDBTrigger'
+  ROOT_SOLUTION_PATH: 'DeploymentUpdates'
   DeploymentUpdates_ROOT_SOLUTION_PATH: 'DeploymentUpdates'
   DevOpsStoreConfiguration_ROOT_SOLUTION_PATH: 'DevOpsStoreConfiguration'
   ExpireWorkflowTimerTrigger_ROOT_SOLUTION_PATH: 'ExpireWorkflowTimerTrigger'
