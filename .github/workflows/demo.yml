@@ -3,9 +3,9 @@ name: Test and Deploy Functions Action
 on:
   push:
     branches: [ main ]
-    paths-ignore: 
+    #paths-ignore: 
       #- '**/README.md'
-      - '**/*.yml'
+      #- '**/*.yml'
   pull_request:
     branches: [ main ]
   workflow_dispatch:
