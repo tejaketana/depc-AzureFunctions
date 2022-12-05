@@ -2,12 +2,12 @@ name: Test and Deploy DeploymentUpdates
 
 on:
   push:
-    branches: [ main ]
+    branches: none #[ main ]
     paths-ignore: 
       #- '**/README.md'
       - '**/*.yml'
   pull_request:
-    branches: [ main ]
+    branches: none #[ main ]
   workflow_dispatch:
   
 env:
