@@ -22,7 +22,7 @@ env:
   AZURE_FUNCTION_TriggerDoDeploy_PATH: TriggerDoDeploy/TriggerDoDeploy
   AZURE_FUNCTION_TriggerMicroservices_PATH: TriggerMicroservices/TriggerMicroservice
   AZURE_FUNCTION_TriggerNotification_PATH: TriggerNotification/TriggerNotification
-  AZURE_FUNCTION_TriggerRepositoryPreparation_PATH: TriggerRepositoryPreparation/TriggerRepositoryPreparation
+  #AZURE_FUNCTION_TriggerRepositoryPreparation_PATH: TriggerRepositoryPreparation/TriggerRepositoryPreparation
   AZURE_FUNCTION_WorkflowUpdates_PATH: WorkflowUpdates/WorkflowUpdates
   ROOT_SOLUTION_PATH: 'CosmosDBTrigger'
   ROOT_SOLUTION_PATH1: 'DeploymentUpdates'
@@ -215,9 +215,9 @@ jobs:
         run: dotnet build --configuration Release --output ./output
         working-directory: ${{ env.AZURE_FUNCTION_TriggerNotification_PATH }}
         
-      - name: Build Function App for Release
-        run: dotnet build --configuration Release --output ./output
-        working-directory: ${{ env.AZURE_FUNCTION_TriggerRepositoryPreparation_PATH }}
+      #- name: Build Function App for Release
+        #run: dotnet build --configuration Release --output ./output
+        #working-directory: ${{ env.AZURE_FUNCTION_TriggerRepositoryPreparation_PATH }}
         
       - name: Build Function App for Release
         run: dotnet build --configuration Release --output ./output
