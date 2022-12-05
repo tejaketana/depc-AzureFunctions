@@ -1,4 +1,4 @@
-name: Test and Deploy CosmosDBTriger
+name: Test and Deploy DeploymentUpdates
 
 on:
   push:
